@@ -23,7 +23,7 @@ public class TaskManager {
     }
 
     public void writeList() {
-        try(FileWriter fileWriter = new FileWriter("src/main/info.json")) {
+        try(FileWriter fileWriter = new FileWriter("data/info.json")) {
             gson.toJson(tasks, fileWriter);
             //fileWriter.close();
         } catch (IOException e) {

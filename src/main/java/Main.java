@@ -18,6 +18,8 @@ public class Main {
 
     tm.addToList(t1); tm.addToList(t2);
 
+    tm.writeList();
+
 
 
 
