@@ -1,24 +1,46 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import com.google.gson.Gson;
+
 
 import java.io.FileWriter;
 import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-    Gson g = new Gson();
-    TaskManager tm = new TaskManager();
-    Task t1 = new Task();
-    t1.setDescription("Tester task");
-    t1.setStatus("incomplete");
-    Task t2 = new Task();
-    t2.setDescription("tester v2");
-    t2.setStatus("sdsd");
+//    Task t1 = new Task();
+//    Task t2 = new Task();
+//    t2.setDescription("make food");
+//    t1.setDescription("walk dog");
+//
+//    ObjectMapper objMapper = new ObjectMapper(); // used for writing json
+//
+//    ObjectNode jsonNode1 = objMapper.createObjectNode(); // create a json object node
+//    jsonNode1.put("description", t1.getDescription()); // put the data that we need title --> data
+//
+//    ObjectNode jsonNode2 = objMapper.createObjectNode(); // create a new obj for every task
+//
+//    jsonNode2.put("description", t2.getDescription());
+//
+//
+//    ArrayList<ObjectNode> objNodeList = new ArrayList<>();
+//
+//    objNodeList.add(jsonNode1); objNodeList.add(jsonNode2);
+//
+//    try {
+//        objMapper.writeValue(new File("data/info.json"), objNodeList);
+//    } catch (IOException e) {
+//        throw new RuntimeException(e);
+//    }
 
-    tm.addToList(t1); tm.addToList(t2);
+        UserInterface ui = new UserInterface();
 
-    tm.writeList();
+        ui.go();
+
+
+
 
 
 

@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 public class Task {
-    int id;
-    String description;
-    String status;
+    private int id;
+    private String description;
+    private String status;
     //LocalDate createdAt;
     //LocalDate updatedAt;
     static int count = 0;

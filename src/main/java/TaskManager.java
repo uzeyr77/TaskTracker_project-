@@ -1,41 +1,40 @@
-import com.google.gson.Gson;
-
-import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class TaskManager {
     //private Task task;
-    private Gson gson;
     private ArrayList<Task> tasks;
-
-
+    private ObjectMapper objMapper;
+    private ArrayList<ObjectNode> jsonNodeList;
 
     public TaskManager() {
-    gson = new Gson();
-    this.tasks = new ArrayList<>();
+        objMapper = new ObjectMapper(); // obj mapper to write
+        this.jsonNodeList = new ArrayList<>();
     }
 
-    public void addToList(Task t) {
-        tasks.add(t);
+    public void createNode(Task task) {
+        // after we create the task objects from prompting the user, then call this
+        // method to create nodes
+        ObjectNode node = objMapper.createObjectNode();
 
+        node.put("description", task.getDescription());
+        node.put("status", task.getStatus());
+
+        jsonNodeList.add(node);
     }
 
-    public void writeList() {
-        try(FileWriter fileWriter = new FileWriter("data/info.json")) {
-            gson.toJson(tasks, fileWriter);
-            //fileWriter.close();
+    public void writeToFile() {
+
+        try {
+            objMapper.writeValue(new File("data/info.json"), jsonNodeList);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         }
-
-    }
-    // write to the Json file
-    public void write() {
-        // loop through the arraylist and add the elements to the file
-
-
 
     }
 
