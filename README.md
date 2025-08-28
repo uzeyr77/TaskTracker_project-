@@ -27,7 +27,7 @@ The format for **Listing** tasks:
 
 **To list all:** **[list] + [\n]**
 
-**To list based on status: (to-do, in-progress, done)** **[list] + [status] + [\n]**  
+**To list based on status (to-do, in-progress, done):** **[list] + [status] + [\n]**  
 
 Format for **Marking** tasks: **[mark-status] + [id of task]**  
 
